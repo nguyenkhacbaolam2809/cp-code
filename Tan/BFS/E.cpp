@@ -7,17 +7,34 @@
 #define ii pair<int , int >
 #define all(v) v.begin(),v.end()
 #define rall(v) v.rbegin(),v.rend()
-#define file "A"
+#define file "E"
 #define endl "\n"
 using namespace std;
 const int MAXN = 1e6 + 6;
-const int maxn = 1e5 + 5;
+const int maxn = 2e5 + 5;
 const int INF = 1e18 + 18;
 const int MOD = 1e9 + 7;
 
-int n,m,u,v;
-vector<int> e[2002];
-int g[2002][2002];
+int n,m,s,ans;
+vector<int> e[maxn];
+int dist[maxn];
+
+void bfs() {
+    for(int i = 1;i < maxn;i++) dist[i] = INF;
+    queue<int> q;
+    dist[s] = 1;
+    q.push(s);
+    while(!q.empty()) {
+        int u = q.front();
+        q.pop();
+        for(int v : e[u]) {
+            if(dist[u] + 1 < dist[v]) {
+                dist[v] = dist[u] + 1;
+                q.push(v);
+            }
+        }
+    }
+}
 
 signed main() {
     ios_base::sync_with_stdio(0);
@@ -27,19 +44,18 @@ signed main() {
         freopen(file".out", "w", stdout);
     }
 
-    cin >> n >> m;
+    cin >> n >> m >> s;
     for(int i = 1;i <= m;i++) {
+        int u,v;
         cin >> u >> v;
-        g[u][v] = 1;
-        g[v][u] = 1;
+        e[u].pb(v);
+        e[v].pb(u);
     }
+    bfs();
     for(int i = 1;i <= n;i++) {
-        for(int j = 1;j <= n;j++) {
-            cout << g[i][j] << ' ';
-        }
-        cout << '\n';
+        if(dist[i] != INF) ans++;
     }
-
+    cout << ans;
 
     return 0;
 }

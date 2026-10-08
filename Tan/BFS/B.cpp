@@ -7,17 +7,16 @@
 #define ii pair<int , int >
 #define all(v) v.begin(),v.end()
 #define rall(v) v.rbegin(),v.rend()
-#define file "A"
+#define file "B"
 #define endl "\n"
 using namespace std;
 const int MAXN = 1e6 + 6;
-const int maxn = 1e5 + 5;
+const int maxn = 2e5 + 5;
 const int INF = 1e18 + 18;
 const int MOD = 1e9 + 7;
 
 int n,m,u,v;
-vector<int> e[2002];
-int g[2002][2002];
+vector<int> e[maxn];
 
 signed main() {
     ios_base::sync_with_stdio(0);
@@ -29,17 +28,17 @@ signed main() {
 
     cin >> n >> m;
     for(int i = 1;i <= m;i++) {
-        cin >> u >> v;
-        g[u][v] = 1;
-        g[v][u] = 1;
+        cin >> u >> v;  
+        e[u].pb(v);
+        e[v].pb(u);
     }
     for(int i = 1;i <= n;i++) {
-        for(int j = 1;j <= n;j++) {
-            cout << g[i][j] << ' ';
+        cout << e[i].size() << ' ';
+        for(auto x : e[i]) {
+            cout << x << ' ';
         }
         cout << '\n';
-    }
-
+    }   
 
     return 0;
 }
