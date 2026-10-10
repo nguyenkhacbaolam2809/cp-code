@@ -1,14 +1,4 @@
-
-
-# 1. Mở khóa cho phép Git đi vào các thư mục con
-!*/
-
-# 2. Chỉ cho phép các file C++ và file header
-!*.cpp
-!*.h
-!*.hpp
-!*.cxx
-!*.cc
-!*.md
-# 3. Giữ lại chính file .gitignore này
-!.gitignore
+*.exe
+*.out
+*.o
+*.obj
