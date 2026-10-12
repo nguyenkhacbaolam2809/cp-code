@@ -16,7 +16,15 @@ const int INF = 1e18 + 18;
 const int MOD = 1e9 + 7;
 
 int n,q;
-int a[maxn];
+int a[maxn],par[maxn],sz[maxn],mark[maxn];
+vector<int> query;
+
+int findroot(int u) {
+    if(par[u] == u) return u;
+    return par[u] = findroot(par[u]);   
+}
+
+
 
 signed main() {
     ios_base::sync_with_stdio(0);
@@ -31,10 +39,12 @@ signed main() {
         cin >> a[i];
     }
     while(q--) {
-        int k;
-        cin >> k;
-        
+        int k;cin >> k;
+        query.pb(k);
     }
+    sort(query.begin() , query.end());
+    
+    
 
     return 0;
 }
