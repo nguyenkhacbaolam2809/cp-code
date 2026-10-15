@@ -11,7 +11,7 @@
 #define endl "\n"
 using namespace std;
 const int MAXN = 1e6 + 6;
-const int maxn = 1e5 + 5;
+const int maxn = 2e5 + 5;
 const int INF = 1e18 + 18;
 const int MOD = 1e9 + 7;
 
@@ -95,8 +95,9 @@ signed main() {
     dijkstra();
     if(dist[t] != INF) {
         cout << dist[t] << ' ' << way[t] << ' ' << dpmin[t] << ' ' << dpmax[t];
+        //cout << way[t];
     }
-    else cout << -1;
+    else cout << -1; // -1 ?
 
     return 0;
 }

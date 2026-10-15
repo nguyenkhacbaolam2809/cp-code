@@ -38,7 +38,6 @@ signed main() {
     }
     while(q--) {
         cin >> id;
-
     }
 
     return 0;
