@@ -30,19 +30,20 @@ signed main() {
     for(int i = 1;i <= n;i++) {
         cin >> b[i];
     }
-    sort(b,b + n + 1);
+    b[n + 1] = m + 1;
+    sort(b,b + n + 2);
     for(int i = 0;i <= n - 1;i++) {
         if(k == 0) break;
         //int x = i,y = i + 1;
         int sz = b[i + 1] - b[i] - 1;
-        if(k > sz) {
+        if(k > sz && k > 0) {
             k -= sz;
-            int s = (sz * ( (b[i + 1] - 1)  + (b[i] + 1)   ) ) / 2;
+            int s = (sz * ( (b[i] + 1)  + (b[i + 1] - 1)   ) ) / 2;
             s = sz * t + s;
             ans += s;
         }
-        else if(k <= sz) {
-            int s = (k * ( (b[i + 1] - 1)  + (b[i] + k - 1) ) ) / 2;
+        else if(k <= sz && k > 0) {
+            int s = (k * ( (b[i] + 1)  + (b[i] + k ) ) ) / 2;
             s = k * t + s;
             ans += s;
             k = 0;

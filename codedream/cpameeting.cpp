@@ -15,6 +15,13 @@ const int maxn = 1e5 + 5;
 const int INF = 1e18 + 18;
 const int MOD = 1e9 + 7;
 
+int n,ans;
+int t[505][505];
+
+void dijkstra() {
+
+}
+
 signed main() {
     ios_base::sync_with_stdio(0);
     cin.tie(0);cout.tie(0);
@@ -23,7 +30,13 @@ signed main() {
         freopen(file".out", "w", stdout);
     }
 
-    
+    cin >> n;
+    for(int i = 1;i <= n;i++) {
+        for(int j = 1;j <= n;j++) {
+            cin >> t[i][j];
+        }
+    }
+    dijkstra();
 
     return 0;
 }

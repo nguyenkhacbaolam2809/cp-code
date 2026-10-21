@@ -37,8 +37,6 @@ void dijkstra() {
         q.pop();
         if(canh > dist[dinh]) continue;
         for(auto v : g[dinh]) {
-            // v.fi la dinh 
-            // v.se la trong so cua canh
             if(dist[dinh] + v.se < dist[v.fi]) {
                 dist[v.fi] = dist[dinh] + v.se;
                 q.push({dist[v.fi] , v.fi});
@@ -56,7 +54,6 @@ void dijkstra() {
         }
     }
 }
-
 void truyvet() {
     int cur = t;
     while(cur != s) {
