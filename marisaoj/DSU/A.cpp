@@ -7,7 +7,7 @@
 #define ii pair<int , int >
 #define all(v) v.begin(),v.end()
 #define rall(v) v.rbegin(),v.rend()
-#define file "A"
+#define file "dsu"
 #define endl "\n"
 using namespace std;
 const int MAXN = 1e6 + 6;
@@ -16,8 +16,12 @@ const int INF = 1e18 + 18;
 const int MOD = 1e9 + 7;
 
 int n,q;
+int par[MAXN],sz[MAXN];
 
-
+int findroot(int u) {
+    if(par[u] == u) return u;
+    return par[u] = findroot(par[u]);
+}
 
 signed main() {
     ios_base::sync_with_stdio(0);
@@ -29,8 +33,11 @@ signed main() {
 
     cin >> n >> q;
     while(q--) {
-        int c,u,v;
+        char c;int u,v;
         cin >> c >> u >> v;
+        if(c == '+') {
+
+        }
     }
 
     return 0;
