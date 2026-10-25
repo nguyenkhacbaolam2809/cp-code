@@ -24,7 +24,11 @@ int findroot(int u) {
     return par[u] = findroot(par[u]);   
 }
 
-
+int findunion(int u,int v) {
+    int a = findroot(u);
+    int b = findroot(v);
+    if(a == b) return
+}
 
 signed main() {
     ios_base::sync_with_stdio(0);
