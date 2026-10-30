@@ -16,7 +16,7 @@ const int INF = 1e18 + 18;
 const int MOD = 1e9 + 7;
 
 
-int n,m,x;
+int n,m,x,ans;
 vector<ii> g[maxn];
 int dist[maxn];
 
@@ -24,7 +24,16 @@ void bfs(int s) {
     queue<int> q;
     q.push(s);
     dist[s] = 0;
-    
+    while(!q.empty()) {
+        int u = q.front();
+        q.pop();
+        for(auto v : g[u]) {
+            if(v.se >= x && dist[u] + 1 < dist[v.fi]) {
+                dist[v.fi] = dist[u] + 1;
+                q.push(v.fi);
+            }
+        }
+    }
 }
 
 signed main() {
@@ -45,7 +54,13 @@ signed main() {
     for(int i = 1;i <= n;i++) {
         dist[i] = INF;
     }
-
+    for(int i = 1;i <= n;i++) {
+        if(dist[i] == INF) {
+            ans++;
+            bfs(i);
+        }
+    }
+    cout << ans;
 
     return 0;
 }
