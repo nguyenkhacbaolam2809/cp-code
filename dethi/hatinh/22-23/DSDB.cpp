@@ -11,7 +11,10 @@ const int MOD = 1e9 + 7;
 const int INF = 1e18 + 18;
 const int maxn = 1e5 + 5;
 
-main() {
+int n;
+int a[2002],dp[2002][2002];
+
+signed main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);cout.tie(NULL);
     if(fopen(file".inp","r")) {
@@ -23,7 +26,22 @@ main() {
     for(int i = 1;i <= n;i++) {
         cin >> a[i];
     }
-
+    // dp[i][j] la do dai palindrome dai nhat tu i den j
+    for(int i = 1;i <= n;i++) {
+        dp[i][i] = 1;
+    }
+    for(int i = n;i >= 1;i--) {
+        for(int j = i + 1;j <= n;j++) {
+            if(a[i] == a[j]) {
+                dp[i][j] = dp[i + 1][j - 1] + 2;
+            }
+            else {
+                dp[i][j] = max(dp[i + 1][j] , 
+                               dp[i][j - 1]);
+            }
+        }
+    }
+    cout << n - dp[1][n];
 
     return 0;
 }

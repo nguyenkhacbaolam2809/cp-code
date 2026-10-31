@@ -15,6 +15,9 @@ const int maxn = 1e5 + 5;
 const int INF = 1e18 + 18;
 const int MOD = 1e9 + 7;
 
+int n,m;
+vector<ii> g[maxn];
+
 signed main() {
     ios_base::sync_with_stdio(0);
     cin.tie(0);cout.tie(0);
@@ -23,6 +26,13 @@ signed main() {
         freopen(file".out", "w", stdout);
     }
 
+    cin >> n >> m;
+    for(int i = 1;i <= m;i++) {
+        int u,v,w;
+        cin >> u >> v >> w;
+        g[u].pb({v,w});
+        g[v].pb({u,w});
+    }
     
 
     return 0;
