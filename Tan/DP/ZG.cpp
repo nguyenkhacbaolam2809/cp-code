@@ -31,17 +31,13 @@ signed main() {
     }
 
     // dinh nghia dp[i][j] la tong gia tri lon nhat i mon do dau tien khong vuot qua j
-    dp[1][w[1]] = v[1]; 
-
-    for(int i = 2;i <= n;i++) {
+    for(int i = 1;i <= n;i++) {
         for(int j = 1;j <= W;j++) {
             // gioi han la j ?
             if(w[i] <= j) {
-                dp[i][j] = max(dp[i - 1][w[i]] , dp[i - 1][j - w[i]] + v[i]);
+                dp[i][j] = max(dp[i - 1][j] , dp[i - 1][j - w[i]] + v[i]);
             }
-            else {
-                dp[i][j] = dp[i - 1][j];
-            }
+            else dp[i][j] = dp[i - 1][j];
         }
     }
     cout << dp[n][W];
