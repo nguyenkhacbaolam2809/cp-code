@@ -35,7 +35,7 @@ signed main() {
     for(int i = 1;i <= n;i++) {
         for(int j = 0;j <= s;j++) {
             if(a[i] <= j) {
-                 dp[i][j] =((dp[i - 1][j] % MOD) + (dp[i - 1][j - a[i]] % MOD));
+                 dp[i][j] = (((dp[i - 1][j] % MOD) + (dp[i - 1][j - a[i]] % MOD)) ) % MOD;
             }
             else {
                 dp[i][j] = dp[i - 1][j];
