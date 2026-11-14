@@ -43,7 +43,7 @@ signed main() {
                 dp[i][j] = dp[i - 1][j];
             }
         }
-    }
+    } 
     cout << dp[n][k];
 
 
