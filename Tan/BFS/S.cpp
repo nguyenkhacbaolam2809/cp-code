@@ -15,11 +15,12 @@ const int maxn = 1e5 + 5;
 const int INF = 1e18 + 18;
 const int MOD = 1e9 + 7;
 
-int n,m,ans , d1[maxn] , dn[maxn];
+int n,m,ans , d1[2 * maxn] , dn[2 * maxn];
 vector<int> g[2 * maxn];
 void bfs() {
-    memset(d1 , 0x3f , sizeof(d1));
-    memset(dn , 0x3f , sizeof(dn));
+    for(int i = 1;i <= n;i++) {
+        d1[i] = dn[i] = INF;
+    }
     queue<int> q1,qn;
     q1.push(1);
     qn.push(n);
@@ -63,7 +64,7 @@ signed main() {
     }
     bfs();
     for(int i = 1;i <= n;i++) {
-        if(d1[i] <= 1e9 && dn[i] <= 1e9) {
+        if(d1[i] != INF && dn[i] != INF) {
             cout << d1[i] + dn[i] << ' ';  
         }
         else {
